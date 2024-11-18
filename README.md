@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Task Management Application - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## Table of Contents
+  
+  1. [Overview](#overview)  
+  2. [Features](#features)    
+  3. [Tech Stack](#tech-stack)  
+  4. [Getting Started](#getting-started)  
+       - [Prerequisites](#prerequisites)  
+       - [Installation](#installation)  
+       - [Running Locally](#running-locally)  
+  5. [API Endpoints](#api-endpoints)  
+  6. [Dockerization](#dockerization)  
+  7. [Future Enhancements](#future-enhancements)  
+     
+ ## Overview 
+  This repository contains the frontend of the Task Management Application built using **React** and **Tailwind CSS**. The application allows users to manage tasks with     functionalities like creating, viewing, updating, and deleting tasks.  
 
-## Available Scripts
+  ## Features
 
-In the project directory, you can run:
+  - **Task Board**: Displays tasks categorized by their statuses (Pending, Started, Checking, Completed).
+  - **Task Form**: Allows users to create new tasks.
+  - **Task Detail Modal**: View detailed information about a selected task.
+  - **Dynamic Updates**: Tasks update dynamically without requiring a page refresh.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Framework for building the UI.  
+      Why React? React provides a component-based architecture, making it easier to break down the UI into reusable parts like TaskBoard, TaskCard, etc.   
+- **Tailwind CSS**: Utility-first CSS framework for styling.  
+      Why TailwindCSS? it offered utility-first styling, which allowed rapid prototyping with minimal CSS files.  
+- **Axios**: HTTP client for API interactions.  
+      Why Axios? Built-in support for promise-based workflows aligns perfectly with modern JavaScript practices like `async/await`  
+- **Docker**: Dockerized for easy deployment.
+  
+## Prerequisites
+--**Node.js**: Version 18 or above (Download from Node.js official site).  
+--**npm**: Comes bundled with Node.js for managing dependencies.  
+--**Docker**: for running the application in a containerized environment (Download from Docker official site).
+  ##  Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-- To set up the project locally, follow these steps:
 
-### `npm test`
+  **Clone the repository**:  
+  
+     git clone https://github.com/Malatesh-Patil-67/task-manager-frontend.git  
+      cd task-manager-frontend
+      
+  
+  **Install dependencies**:  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+     npm install  
 
-### `npm run build`
+  ## Running Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-- To start the application locally in development mode:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Run the following command to start the development server:
+    
+        npm start  
+    
+2.Open your browser and navigate to:
+    
+    http://localhost:3000
+    
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dockerization
+    
+  **Build the Docker Image**:
+     
+    
+      docker build -t task-manager-frontend .
+    
+  **Run the Docker Container**: 
+    
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      docker run -d -p 8080:80 task-manager-frontend
+    
+   -- This maps port `8080` on your host machine to port `80` in the container.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  **Access the Application**: Open your browser and go to:  
+     
+    
+        `http://localhost:8080`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API Endpoints
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+| Method     | Endpoint       | Description                    |
+|------------|----------------|--------------------------------|
+| **GET**    | `/tasks`       | Fetch all tasks               |
+| **GET**    | `/tasks/{id}`  | Fetch a task by its ID        |
+| **POST**   | `/tasks`       | Create a new task             |
+| **PUT**    | `/tasks/{id}`  | Update an existing task       |
+| **DELETE** | `/tasks/{id}`  | Delete a task                 |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+        
 
-### Code Splitting
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Add Authentication**: Secure the application with login functionality.
+- **Advanced Filtering**: Allow filtering tasks by date, priority, etc.
+- **Notifications**: Real-time task updates using WebSockets.
